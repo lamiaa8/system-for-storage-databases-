@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    
+</head>
+<body>
+    
+
+    <section>
+        <div class="container">
+            <div>
+                <h1>Product</h1>
+                <label for="productName">product Name</label><br>
+                <input type="text" onkeyup="chicke()" id="productName" name=""  class="form-control">
+                
+                <label for="productPrice">product price</label><br>
+                <input type="number" onkeyup="chicke()"  id="productPrice" name=""  class="form-control">
+
+                <label for="productCAte">product category</label><br>
+                <input type="text"  id="productCAte" name=""  class="form-control">
+
+                <label for="productdes">product description</label><br>
+                <input type="text" onkeydown="chicke()" id="productdes" name="" class="form-control mb-2">
+                
+                <label for="Count">Count</label>
+                <input type="number" class="form-control w-25" name="" id="Count">
+
+                <button onclick="addproduct()" class="btn btn-info mt-3" id="buAdd" > Add Product</button>
+                
+                <button  onclick="deleteAll()"class="btn btn-danger mt-3">Delete All</button>
+                <span id="buttonedit"></span>
+
+
+            <input type="text" onkeyup="searchProduct(this.value)" name="" class="w-50 form-control mx-auto my-5" id="search" placeholder="search product....">
+
+            </div>
+
+            <table class="table text-center">
+                <thead>
+                    <tr class="table-dark text-center text-white mt-4">
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Count</th>
+                        <th scope="col">price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Descrip</th>
+                        <th scope="col">Delete</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+   </body>
+</html>
