@@ -1,0 +1,26 @@
+@import url(../css/fonts.css);
+
+ * {
+    margin: 30px 0 0 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 2;
+  }
+  
+
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  .about{
+    padding: 40px 0;
+  }
+  .about .card{
+    border: none;
+    transition: all .5s ease-in-out;
+  }
+  .about .card:hover{
+    transform: scaleX(1);
+    border: 1px solid rgb(111, 105, 105);
+  }
