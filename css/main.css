@@ -24,3 +24,24 @@
     transform: scaleX(1);
     border: 1px solid rgb(111, 105, 105);
   }
+  
+  section #message{
+    
+    position: absolute;
+    height: 100px;
+    color: rgb(247, 4, 4);
+    background-color: rgba(44, 121, 168, 0.847);
+    border: 1px solid #777;
+    border-radius: 10px;
+    font-family: PoppinsRegular;
+    font-size: 22px;
+    padding: 30px;
+    text-align: center;
+    top: 0;
+    width: 20%;
+    right: 0;
+    left: 40%;
+    transition: all 0.5s ease-in-out;
+    text-transform: capitalize;
+    opacity: 0;
+  }

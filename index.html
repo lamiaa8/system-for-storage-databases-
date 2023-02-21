@@ -15,51 +15,62 @@
 
     <section>
         <div class="container">
-            <div>
-                <h1>Product</h1>
-                <label for="productName">product Name</label><br>
-                <input type="text" onkeyup="chicke()" id="productName" name=""  class="form-control">
-                
-                <label for="productPrice">product price</label><br>
-                <input type="number" onkeyup="chicke()"  id="productPrice" name=""  class="form-control">
-
-                <label for="productCAte">product category</label><br>
-                <input type="text"  id="productCAte" name=""  class="form-control">
-
-                <label for="productdes">product description</label><br>
-                <input type="text" onkeydown="chicke()" id="productdes" name="" class="form-control mb-2">
-                
-                <label for="Count">Count</label>
-                <input type="number" class="form-control w-25" name="" id="Count">
-
-                <button onclick="addproduct()" class="btn btn-info mt-3" id="buAdd" > Add Product</button>
-                
-                <button  onclick="deleteAll()"class="btn btn-danger mt-3">Delete All</button>
-                <span id="buttonedit"></span>
-
-
-            <input type="text" onkeyup="searchProduct(this.value)" name="" class="w-50 form-control mx-auto my-5" id="search" placeholder="search product....">
-
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="p-2">
+                        <h1>Product</h1>
+                        <label for="productName">product Name</label><br>
+                        <input type="text" onkeyup="chicke() ; searchProduct(this.value)" id="productName" name=""  class="form-control">
+                        
+                        <label for="productPrice">product price</label><br>
+                        <input type="number" onkeyup="chicke()"  id="productPrice" name=""  class="form-control">
+        
+                        <label for="productCAte">product category</label><br>
+                        <input type="text"  id="productCAte" name=""  class="form-control">
+        
+                        <label for="productdes">product description</label><br>
+                        <input type="text" onkeydown="chicke()" id="productdes" name="" class="form-control mb-2">
+                        
+                        <label for="Count">Count</label>
+                        <input type="number" class="form-control " name="" id="Count">
+        
+                        <button onclick="addproduct()" class="btn btn-info mt-3" id="buAdd" > Add Product</button>
+                        
+                        <button  onclick="deleteAll()"class="btn btn-danger mt-3">Delete All</button>
+                        <span id="buttonedit"></span>
+        
+        
+        
+                    </div>
+        
+                    
+                </div>
+                <div class="col-lg-8">
+                    <input type="text" onkeyup="searchProduct(this.value)" name="" class="w-50 form-control mx-auto my-5" id="search" placeholder="search product....">
+                    <table class="table text-center p-2">
+                        <thead>
+                            <tr class="table-dark text-center text-white mt-4">
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Count</th>
+                                <th scope="col">price</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Descrip</th>
+                                <th scope="col">Delete</th>
+                                <th scope="col">Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+        
+                        </tbody>
+                        <tfoot id="tfoot" class=" text-center text-bg-primary ">
+        
+                        </tfoot>
+                    </table>
+                </div>
             </div>
-
-            <table class="table text-center">
-                <thead>
-                    <tr class="table-dark text-center text-white mt-4">
-                        <th scope="col">Id</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Count</th>
-                        <th scope="col">price</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Descrip</th>
-                        <th scope="col">Delete</th>
-                        <th scope="col">Edit</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody">
-
-                </tbody>
-            </table>
         </div>
+        <div id="message">proudact is saved </div>
     </section>
 
 
@@ -71,6 +82,5 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-
-   </body>
+</body>
 </html>

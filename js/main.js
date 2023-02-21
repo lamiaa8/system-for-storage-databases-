@@ -2,9 +2,12 @@ var productName = document.getElementById("productName");
 var productPrice = document.getElementById("productPrice");
 var productCAte = document.getElementById("productCAte");
 var productdes = document.getElementById("productdes");
-var productCount = document.getElementById("Count");  
+var productCount = document.getElementById("Count"); 
+var message = document.getElementById("message") ;
 var productcontainer =[];
 
+
+var haveIndexInEdite = -1 ;
 
 //  disply in table from datastorage 
 
@@ -42,23 +45,58 @@ function chicke(){
 
 //     action on button 
 function addproduct(){
-    var product = {
-        name: productName.value ,
-        price: productPrice.value ,
-        cateory: productCAte.value ,
-        discription: productdes.value ,
-        count: productCount.value
-    }
-    productcontainer.push(product)
-    localStorage.setItem("ourProducts", JSON.stringify(productcontainer))
-    displayproduct()
-    clearinp()
+    if(haveIndexInEdite == -1){
+        var product = {
+            name: productName.value ,
+            price: productPrice.value ,
+            cateory: productCAte.value ,
+            discription: productdes.value ,
+            count: productCount.value
+        }
+        productcontainer.push(product)
+        localStorage.setItem("ourProducts", JSON.stringify(productcontainer))
+        displayproduct()
+        clearinp()
+        message.style.opacity="1"
+        message.style.top="30%"
 
+        
+        setTimeout(function () {
+            message.style.opacity="0"
+            message.style.top="0"
+            
+        }, 2000);
+    }
+    else{
+        var product2 = 
+        {
+            name: productName.value ,
+            price: productPrice.value ,
+            cateory: productCAte.value ,
+            discription: productdes.value ,
+            count: productCount.value
+        }
+        productcontainer[haveIndexInEdite]=product2
+        localStorage.setItem("ourProducts", JSON.stringify(productcontainer))
+        displayproduct()
+        clearinp()
+
+        message.style.opacity="1"
+        message.style.top="30%"
+
+        
+        setTimeout(function () {
+            message.style.opacity="0"
+            message.style.top="0"
+            
+        }, 2000);
+    }
 }
 
 //  display when click
 function displayproduct(){
     var cartoona = "";
+    var totalprice = 0 ;
     for(var i = 0 ; i< productcontainer.length ; i++)
     {
         cartoona+=`
@@ -73,8 +111,20 @@ function displayproduct(){
             <td><button type="button"onclick="editeRow(${i})"  class="btn btn-warning">Edite</button></td>
 
         </tr>`
+        totalprice += Number( productcontainer[i].price)
     }
+    var cartoona2 = `
+        <tr >
+            <td class="table-dark " colspan="3"><b>Total price</b></td>
+            <td colspan="3"><b>${totalprice}</b></td>
+            <td><b></b></td>
+            <td><b></b></td>
+            
+            
+
+        `
     document.getElementById("tbody").innerHTML = cartoona ;
+    document.getElementById("tfoot").innerHTML = cartoona2 ;
     
 }
 
@@ -157,26 +207,30 @@ function editeRow(indexOfEdite){
     document.getElementById("productdes").value = productcontainer[indexOfEdite].discription;
     document.getElementById("Count").value = productcontainer[indexOfEdite].count;
 
-    // document.getElementById("buAdd").disabled="disabled"
 
-    var m = ` <button  onclick="displayAftarEdite(${indexOfEdite})" class="btn btn-warning mt-3 " >Edit</button>`;
+    // var m = ` <button  onclick="displayAftarEdite(${indexOfEdite})" class="btn btn-warning mt-3 " >Edit</button>`;
     
-    document.getElementById("buttonedit").innerHTML = m ;
+    // document.getElementById("buttonedit").innerHTML = m ;
+
+    haveIndexInEdite = indexOfEdite;
+
 
 }
 
-function displayAftarEdite(d){
+// function displayAftarEdite(d){
 
-    var product2 = 
-    {
-        name: productName.value ,
-        price: productPrice.value ,
-        cateory: productCAte.value ,
-        discription: productdes.value ,
-        count: productCount.value
-    }
-    productcontainer[d]=product2
-    localStorage.setItem("ourProducts", JSON.stringify(productcontainer))
-    displayproduct()
-    document.getElementById("buttonedit").innerHTML = null ;
-}
+//     var product2 = 
+//     {
+//         name: productName.value ,
+//         price: productPrice.value ,
+//         cateory: productCAte.value ,
+//         discription: productdes.value ,
+//         count: productCount.value
+//     }
+//     productcontainer[d]=product2
+//     localStorage.setItem("ourProducts", JSON.stringify(productcontainer))
+//     displayproduct()
+//     document.getElementById("buttonedit").innerHTML = null ;
+// }
+
+
